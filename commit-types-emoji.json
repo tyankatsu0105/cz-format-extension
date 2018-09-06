@@ -1,0 +1,64 @@
+{
+  "types": {
+    "bug": {
+      "description": "🐛 バグの修正",
+      "title": "バグの修正"
+    },
+    "tada": {
+      "description": "🎉 新機能の実装",
+      "title": "新機能の実装"
+    },
+    "+1": {
+      "description": "👍 機能改善",
+      "title": "機能改善"
+    },
+    "pill": {
+      "description": "💊 機能修正",
+      "title": "機能修正"
+    },
+    "syringe": {
+      "description": "💉 linterの設定やエラー修正",
+      "title": "linterの設定やエラー修正"
+    },
+    "fire": {
+      "description": "🔥 不要ファイルの削除",
+      "title": "不要ファイルの削除"
+    },
+    "truck": {
+      "description": "🚚 ファイル移動",
+      "title": "ファイル移動"
+    },
+    "name": {
+      "description": "📛 ファイル名変更",
+      "title": "ファイル名変更"
+    },
+    "memo": {
+      "description": "📝 markdownファイルの変更",
+      "title": "markdownファイルの変更"
+    },
+    "bookmark": {
+      "description": "📑 タグ切り(リリース)",
+      "title": "タグ切り(リリース)"
+    },
+    "white_check_mark": {
+      "description": "✅ テストの作成",
+      "title": "テストの作成"
+    },
+    "cop": {
+      "description": "👮 認証周り",
+      "title": "認証周り"
+    },
+    "green_heart": {
+      "description": "💚 テストの修正",
+      "title": "テストの修正"
+    },
+    "up": {
+      "description": "🆙 モジュールのバージョンアップ",
+      "title": "モジュールのバージョンアップ"
+    },
+    "ghost": {
+      "description": "👻 作業途中",
+      "title": "作業途中"
+    }
+  }
+}

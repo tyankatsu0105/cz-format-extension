@@ -1,0 +1,32 @@
+{
+  "name": "cz-format-extension",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyankatsu0105/cz-format-extension.git"
+  },
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.hatenablog.com/)",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./index.js"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/tyankatsu0105/cz-format-extension/issues"
+  },
+  "homepage": "https://github.com/tyankatsu0105/cz-format-extension#readme",
+  "scripts": {
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "lodash.map": "^4.6.0",
+    "longest": "^2.0.1",
+    "right-pad": "^1.0.1",
+    "word-wrap": "^1.2.3"
+  },
+  "devDependencies": {
+    "commitizen": "^2.10.1"
+  }
+}
