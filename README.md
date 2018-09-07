@@ -1,6 +1,8 @@
 # cz-format-extension
 
-🚧 WIP 🚧
+🚧 WIP 🚧  
+
+npm is [here](https://www.npmjs.com/package/cz-format-extension)
 
 This package is extension commit message format when use [commitizen](https://github.com/commitizen/cz-cli)
 
