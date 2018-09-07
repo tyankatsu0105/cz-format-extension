@@ -2,15 +2,17 @@
 
 🚧 WIP 🚧
 
+This package is extension commit message format when use [commitizen](https://github.com/commitizen/cz-cli)
+
 ## install
 
 ```
 yarn add cz-format-extension commitizen -D
 ```
 
-## Usage
+## Setting
 
-パスを通すために、`.czrc` もしくは `package.json`に記述します
+Path to `cz-format-extension` in `.czrc` or `package.json`
 
 ### .czrc
 
@@ -27,6 +29,11 @@ yarn add cz-format-extension commitizen -D
     "path": "cz-format-extension"
   }
 }
+```
+
+## Usage
+```
+yarn git-cz
 ```
 
 ## Thanks
