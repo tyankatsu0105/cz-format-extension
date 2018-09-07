@@ -1,3 +1,13 @@
+#### 0.0.3 (2018-09-07)
+
+##### Documentation Changes
+
+* **README.md:**  :+1: npmリンク追記 ([e562e3bd](https://github.com/tyankatsu0105/cz-format-extension/commit/e562e3bdb03b642b0b95b93b8d3a2294090ab8e3))
+
+##### Refactors
+
+*  :pill: scriptの修正 ([96409fc0](https://github.com/tyankatsu0105/cz-format-extension/commit/96409fc0dacc8ad005b0882bd00413f7ead574ba))
+
 #### 0.0.2 (2018-09-07)
 
 ##### Documentation Changes
