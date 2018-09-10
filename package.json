@@ -9,9 +9,6 @@
   "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.hatenablog.com/)",
   "license": "MIT",
   "config": {
-    "commitizen": {
-      "path": "./index.js"
-    },
     "changelog": "https://github.com/tyankatsu0105/cz-format-extension"
   },
   "bugs": {
@@ -19,7 +16,8 @@
   },
   "homepage": "https://github.com/tyankatsu0105/cz-format-extension#readme",
   "scripts": {
-    "commit": "git-cz",
+    "commit": "echo '{ \"path\": \"normal-commit/index.js\" }' > .czrc && git-cz",
+    "test": "git add && echo '{ \"path\": \"./index.js\" }' > .czrc && git-cz",
     "release:major": "changelog -M -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version major -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
     "release:minor": "changelog -m -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version minor -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
     "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags"
