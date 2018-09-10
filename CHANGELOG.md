@@ -1,3 +1,9 @@
+#### 0.0.4 (2018-09-10)
+
+##### New Features
+
+*  :bug: 力技のテスト環境構築 ([408ce19b](https://github.com/tyankatsu0105/cz-format-extension/commit/408ce19b5797dacae2260e1e2df28e4823bb66da))
+
 #### 0.0.3 (2018-09-07)
 
 ##### Documentation Changes
