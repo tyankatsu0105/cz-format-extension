@@ -6,3 +6,4 @@ const getConfigQuestions = async () => {
 };
 
 getConfigQuestions();
+getConfigQuestions();
