@@ -1,9 +1,9 @@
-'format cjs';
+"format cjs";
 
-const wrap = require('word-wrap');
-const map = require('lodash.map');
-const longest = require('longest');
-const rightPad = require('right-pad');
+const wrap = require("word-wrap");
+const map = require("lodash.map");
+const rightPad = require("right-pad");
+const { getMaxLength } = require("./domain");
 
 const filter = function(array) {
   return array.filter(x => x);
@@ -16,7 +16,7 @@ module.exports = function(options) {
   const typesPrefix = options.typesPrefix;
   const typesEmoji = options.typesEmoji;
 
-  const length = longest(Object.keys(typesPrefix)).length + 1;
+  const length = getMaxLength(typesPrefix);
   const choicesPrefix = map(typesPrefix, (type, key) => ({
     name: `${rightPad(`${key}:`, length)} ${type.description}`,
     value: key
@@ -41,7 +41,7 @@ module.exports = function(options) {
     prompter(cz, commit) {
       // console.log('\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
       console.log(
-        '\n1行目は100文字で切り取られ、超過分は次行以降に記載されます。\n'
+        "\n1行目は100文字で切り取られ、超過分は次行以降に記載されます。\n"
       );
 
       // Let's ask some questions of the user
@@ -53,56 +53,56 @@ module.exports = function(options) {
       // collection library if you prefer.
       cz.prompt([
         {
-          type: 'list',
-          name: 'type',
-          message: 'コミットする変更タイプを選択:',
+          type: "list",
+          name: "type",
+          message: "コミットする変更タイプを選択:",
           choices: choicesPrefix
         },
         {
-          type: 'input',
-          name: 'scope',
+          type: "input",
+          name: "scope",
           message:
-            '変更内容のスコープ(例:コンポーネントやファイル名):（enterでスキップ）\n'
+            "変更内容のスコープ(例:コンポーネントやファイル名):（enterでスキップ）\n"
         },
         {
-          type: 'list',
-          name: 'emoji',
-          message: 'コミット内容に合うemojiを選択:',
+          type: "list",
+          name: "emoji",
+          message: "コミット内容に合うemojiを選択:",
           choices: choicesEmojiPrefix
         },
         {
-          type: 'input',
-          name: 'subject',
-          message: '変更内容を要約した本質的説明:\n'
+          type: "input",
+          name: "subject",
+          message: "変更内容を要約した本質的説明:\n"
         },
         {
-          type: 'input',
-          name: 'body',
-          message: '変更内容の詳細:（enterでスキップ）\n'
+          type: "input",
+          name: "body",
+          message: "変更内容の詳細:（enterでスキップ）\n"
         },
         {
-          type: 'confirm',
-          name: 'isBreaking',
-          message: '破壊的変更を含みますか？',
+          type: "confirm",
+          name: "isBreaking",
+          message: "破壊的変更を含みますか？",
           default: false
         },
         {
-          type: 'input',
-          name: 'breaking',
-          message: '破壊的変更についての記述:\n',
+          type: "input",
+          name: "breaking",
+          message: "破壊的変更についての記述:\n",
           when(answers) {
             return answers.isBreaking;
           }
         },
         {
-          type: 'confirm',
-          name: 'isIssueAffected',
-          message: 'issueに関連した変更ですか？',
+          type: "confirm",
+          name: "isIssueAffected",
+          message: "issueに関連した変更ですか？",
           default: false
         },
         {
-          type: 'input',
-          name: 'issues',
+          type: "input",
+          name: "issues",
           message: '関連issueを追記 (例:"fix #123", "re #123"):\n',
           when(answers) {
             return answers.isIssueAffected;
@@ -113,14 +113,14 @@ module.exports = function(options) {
 
         const wrapOptions = {
           trim: true,
-          newline: '\n',
-          indent: '',
+          newline: "\n",
+          indent: "",
           width: maxLineWidth
         };
 
         // parentheses are only needed when a scope is present
         let scope = answers.scope.trim();
-        scope = scope ? `(${answers.scope.trim()})` : '';
+        scope = scope ? `(${answers.scope.trim()})` : "";
 
         // Hard limit this line
         const head = `${answers.type}${scope}: :${
@@ -131,22 +131,22 @@ module.exports = function(options) {
         const body = wrap(answers.body, wrapOptions);
 
         // Apply breaking change prefix, removing it if already present
-        let breaking = answers.breaking ? answers.breaking.trim() : '';
+        let breaking = answers.breaking ? answers.breaking.trim() : "";
         breaking = breaking
-          ? `BREAKING CHANGE: ${breaking.replace(/^BREAKING CHANGE: /, '')}`
-          : '';
+          ? `BREAKING CHANGE: ${breaking.replace(/^BREAKING CHANGE: /, "")}`
+          : "";
         breaking = wrap(breaking, wrapOptions);
 
-        const issues = answers.issues ? wrap(answers.issues, wrapOptions) : '';
+        const issues = answers.issues ? wrap(answers.issues, wrapOptions) : "";
 
-        const footer = filter([breaking, issues]).join('\n\n');
+        const footer = filter([breaking, issues]).join("\n\n");
 
         commit(`${head}\n\n${body}\n\n${footer}`);
         console.log(`
 ======================
 ${head}\n\n${body}\n\n${footer}
 ======================
-        `)
+        `);
       });
     }
   };
