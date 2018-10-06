@@ -8,7 +8,7 @@ export default async function searchAndLoad() {
 
   // not exist file or contents
   if (!data || !data.config) {
-    throw new Error(`${configFileName} rc file not found`);
+    throw new Error(`${configFileName}.config.js file not found`);
   }
 
   const { config, filePath } = data;
