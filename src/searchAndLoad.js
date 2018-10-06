@@ -1,6 +1,6 @@
-const cosmiconfig = require("cosmiconfig");
+const cosmiconfig = require('cosmiconfig');
 
-const configFileName = "czfe";
+const configFileName = 'czfe';
 const explorer = cosmiconfig(configFileName);
 
 export default async function searchAndLoad() {
@@ -14,6 +14,6 @@ export default async function searchAndLoad() {
   const { config, filePath } = data;
   return {
     filePath,
-    config
+    config,
   };
 }

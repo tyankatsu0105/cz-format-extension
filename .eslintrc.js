@@ -5,5 +5,14 @@ module.exports = {
     es6: true
   },
   extends: ["airbnb", "prettier"],
-  plugins: ["prettier"]
+  plugins: ["prettier"],
+  rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        singleQuote: true,
+        trailingComma: "es5"
+      }
+    ]
+  }
 };
