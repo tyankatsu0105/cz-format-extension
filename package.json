@@ -1,49 +1,39 @@
 {
   "name": "cz-format-extension",
   "version": "0.0.4",
-  "main": "lib/index.js",
-  "bin": {
-    "czfe": "bin/index.js"
+  "homepage": "https://github.com/tyankatsu0105/cz-format-extension#readme",
+  "bugs": {
+    "url": "https://github.com/tyankatsu0105/cz-format-extension/issues"
   },
+  "license": "MIT",
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.hatenablog.com/)",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "lib",
+    "package.json"
+  ],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tyankatsu0105/cz-format-extension.git"
   },
-  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.hatenablog.com/)",
-  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "build:watch": "babel --watch src --out-dir lib",
+    "commit": "git-cz",
+    "format": "prettier --write src/**/*",
+    "precommit": "lint-staged",
+    "release:major": "changelog -M -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version major -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
+    "release:minor": "changelog -m -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version minor -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
+    "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
+    "test": "node index.js"
+  },
   "config": {
     "changelog": "https://github.com/tyankatsu0105/cz-format-extension"
   },
-  "bugs": {
-    "url": "https://github.com/tyankatsu0105/cz-format-extension/issues"
-  },
-  "homepage": "https://github.com/tyankatsu0105/cz-format-extension#readme",
-  "scripts": {
-    "commit": "git-cz",
-    "precommit": "lint-staged",
-    "format": "prettier --write src/**/*",
-    "build": "babel src --out-dir lib",
-    "build:watch": "babel --watch src --out-dir lib",
-    "release:major": "changelog -M -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version major -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "release:minor": "changelog -m -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version minor -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags"
-  },
-  "lint-staged": {
-    "linters": {
-      "*.js": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "node_modules/**/*",
-      "lib/**/*",
-      "bin/**/*"
-    ]
-  },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
     "cosmiconfig": "^5.0.6",
     "lodash.map": "^4.6.0",
     "longest": "^2.0.1",
@@ -53,6 +43,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "babel-preset-power-assert": "^3.0.0",
     "babel-register": "^6.26.0",
@@ -64,9 +55,22 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "fixpack": "^2.3.1",
     "generate-changelog": "^1.7.1",
     "lint-staged": "^7.3.0",
     "power-assert": "^1.6.1",
     "prettier": "^1.14.3"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "node_modules/**/*",
+      "lib/**/*"
+    ]
   }
 }
