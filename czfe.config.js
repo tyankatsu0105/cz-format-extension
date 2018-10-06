@@ -9,14 +9,21 @@ const questions = [
     prefix: '👉',
     choices: [
       {
-        title: 'feat',
+        name: 'feat:',
         description: '新機能',
       },
       {
-        title: 'fix',
+        name: 'fix:',
         description: 'バグ修正',
       },
     ],
+  },
+  {
+    name: 'scope',
+    message:
+      '変更内容のスコープ(例:コンポーネントやファイル名):（enterでスキップ）\n',
+    type: 'input',
+    prefix: '👉',
   },
   {
     name: 'emoji',
@@ -25,11 +32,11 @@ const questions = [
     prefix: '👉',
     choices: [
       {
-        title: ':bug:',
+        name: ':bug:',
         description: '🐛 バグの修正',
       },
       {
-        title: ':tada:',
+        name: ':tada:',
         description: '🎉 新機能の実装',
       },
     ],
