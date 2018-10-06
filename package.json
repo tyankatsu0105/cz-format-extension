@@ -36,7 +36,6 @@
   "dependencies": {
     "cosmiconfig": "^5.0.6",
     "lodash.map": "^4.6.0",
-    "longest": "^2.0.1",
     "right-pad": "^1.0.1",
     "word-wrap": "^1.2.3"
   },
