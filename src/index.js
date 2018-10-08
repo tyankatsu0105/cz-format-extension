@@ -39,7 +39,9 @@ const czfe = function() {
 
       getConfig().then(value => {
         cz.prompt(value).then(answers => {
-          commit(answers.scope);
+          commit(
+            `${answers.prefix}${answers.scope}${answers.emoji}${answers.body}`
+          );
         });
       });
     },
