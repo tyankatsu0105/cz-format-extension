@@ -1,2 +1,2 @@
-#!/usr/bin/env node
-require('./lib/index');
+const czfe = require('./lib');
+module.exports = czfe();
