@@ -41,6 +41,13 @@ const questions = [
       },
     ],
   },
+  {
+    name: 'body',
+    message:
+      '変更内容のスコープ(例:コンポーネントやファイル名):（enterでスキップ）\n',
+    type: 'input',
+    prefix: '👉',
+  },
 ];
 
 module.exports = { questions };

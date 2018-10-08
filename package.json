@@ -22,13 +22,17 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "build:watch": "babel --watch src --out-dir lib",
-    "commit": "git-cz",
+    "czrcCommit": "echo '// this is test\n{ \"path\": \"normal-commit/index.js\" }' > .czrc && git add .czrc",
+    "czrcTest": "echo '{ \"path\": \"./index.js\" }' > .czrc && git add .czrc",
+    "git-cz": "git-cz",
+    "commit": "run-s czrcCommit format git-cz",
+    "test": "run-s czrcTest git-cz",
+    "reset": "git reset --soft HEAD^",
     "precommit": "lint-staged",
     "format": "fixpack",
     "release:major": "changelog -M -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version major -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
     "release:minor": "changelog -m -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version minor -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "test": "node index.js"
+    "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags"
   },
   "config": {
     "changelog": "https://github.com/tyankatsu0105/cz-format-extension"
@@ -54,6 +58,7 @@
     "fixpack": "^2.3.1",
     "generate-changelog": "^1.7.1",
     "lint-staged": "^7.3.0",
+    "npm-run-all": "^4.1.3",
     "power-assert": "^1.6.1",
     "prettier": "^1.14.3"
   },

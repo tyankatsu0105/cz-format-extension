@@ -3,7 +3,7 @@ const cosmiconfig = require('cosmiconfig');
 const configFileName = 'czfe';
 const explorer = cosmiconfig(configFileName);
 
-export default async function searchAndLoad() {
+module.exports = async function searchAndLoad() {
   const data = await explorer.search();
 
   // not exist file or contents
@@ -16,4 +16,4 @@ export default async function searchAndLoad() {
     filePath,
     config,
   };
-}
+};
