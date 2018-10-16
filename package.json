@@ -65,6 +65,12 @@
     "npm": "6.4.1",
     "yarn": "1.10.1"
   },
+  "contributors": [
+    {
+      "name": "camcam-lemon",
+      "email": "omega.camcamlemon@gmail.com"
+    }
+  ],
   "engineStrict": true,
   "lint-staged": {
     "linters": {
