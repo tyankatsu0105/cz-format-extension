@@ -1,16 +1,25 @@
 const { initialize, createCommitConfig } = require('./common');
 
-async function czfe() {
-  const prompter = async (cz, commit) => {
-    const {
-      config: { questions },
-    } = await initialize();
+function czfe() {
+  const prompter = (cz, commit) =>
+    new Promise(async (resolve, reject) => {
+      const {
+        config: { questions },
+      } = await initialize();
+      const getConfig = () => questions.map(createCommitConfig);
 
-    const getConfig = () => questions.map(createCommitConfig);
-    const config = await getConfig();
-    const answers = await cz.prompt(config);
-    commit(`${answers.prefix}${answers.scope}${answers.emoji}${answers.body}`);
-  };
+      try {
+        const config = getConfig();
+        const answers = await cz.prompt(config).catch(e => reject(e));
+        resolve(
+          commit(
+            `${answers.prefix}${answers.scope}${answers.emoji}${answers.body}`
+          )
+        );
+      } catch (e) {
+        reject(e);
+      }
+    });
 
   return { prompter };
 }
