@@ -38,6 +38,10 @@ Path to `cz-format-extension` in `.czrc` or `package.json`
 yarn git-cz
 ```
 
+## Contribute
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+
 ## Thanks
 Inspired by:
 
