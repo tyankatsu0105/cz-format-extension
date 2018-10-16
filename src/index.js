@@ -1,40 +1,14 @@
-const longest = require('longest');
-const rightPad = require('right-pad');
-const searchAndLoad = require('./searchAndLoad');
+const { initialize, createCommitConfig } = require('./common');
 
-// eslint-disable-next-line func-names
-const czfe = function() {
+function czfe() {
   return {
     prompter(cz, commit) {
       const getConfig = async () => {
-        const { config } = await searchAndLoad();
-        let { questions } = config;
+        const {
+          config: { questions },
+        } = await initialize();
 
-        questions = questions.map(question => {
-          if (!question.choices) return question;
-
-          // longestにわたす配列作成
-          const choiceNameArray = question.choices.map(choice => choice.name);
-
-          // nameとdescriptionを結合させるため
-          const combine = question.choices.map(choice => {
-            // choicesで一番長いnameの文字数を計算 + 余白
-            const choiceNameLength = longest(choiceNameArray).length + 1;
-
-            return {
-              name: `${rightPad(choice.name, choiceNameLength)} ${
-                choice.description
-              }`,
-              value: choice.name,
-            };
-          });
-
-          // eslint-disable-next-line no-param-reassign
-          question.choices = combine;
-
-          return question;
-        });
-        return questions;
+        return questions.map(createCommitConfig);
       };
 
       getConfig().then(value => {
@@ -46,6 +20,6 @@ const czfe = function() {
       });
     },
   };
-};
+}
 
 module.exports = czfe;
