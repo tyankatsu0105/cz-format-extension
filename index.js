@@ -1,2 +1,2 @@
-const czfe = require('./src');
+const czfe = require('./lib');
 module.exports = czfe();
