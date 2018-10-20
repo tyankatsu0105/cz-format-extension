@@ -26,7 +26,7 @@
     "czrcTest": "echo '{ \"path\": \"./index.js\" }' > .czrc && git add .czrc",
     "git-cz": "git-cz",
     "commit": "run-s czrcCommit format git-cz",
-    "test": "run-s czrcTest git-cz",
+    "test": "run-s build czrcTest git-cz",
     "reset": "git reset --soft HEAD^",
     "precommit": "lint-staged",
     "format": "fixpack",
