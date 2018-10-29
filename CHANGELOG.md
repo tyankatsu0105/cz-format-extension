@@ -1,3 +1,17 @@
+#### 0.1.1 (2018-10-29)
+
+##### Continuous Integration
+
+*  :tada: travisの設定を追加 ([62c65427](https://github.com/tyankatsu0105/cz-format-extension/commit/62c65427c1a365a61c6c2d50c064c5c9f3404ea2))
+
+##### Performance Improvements
+
+*  :+1: scriptの修正 ([054786ae](https://github.com/tyankatsu0105/cz-format-extension/commit/054786ae835870827c0c9f31ebfe048dd0b10850))
+*  :pill: libをgit管理対象外に ([aeb36a94](https://github.com/tyankatsu0105/cz-format-extension/commit/aeb36a943097de3ca57baaddbcd265abf1f03320))
+* **package.json:**
+  *  :tada: contributorsをpackage.jsonに追加 ([bc988648](https://github.com/tyankatsu0105/cz-format-extension/commit/bc988648fe560952b46a4d10a63fee8a276e06ed))
+  *  :+1: 使用していないパッケージ削除 ([71405883](https://github.com/tyankatsu0105/cz-format-extension/commit/71405883e021bd0554a4f3d78cf46a0390c8a80e))
+
 ### 0.1.0 (2018-10-16)
 
 ##### Build System / Dependencies
