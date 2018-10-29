@@ -1,3 +1,9 @@
+#### 0.1.4 (2018-10-29)
+
+##### Bug Fixes
+
+*  :pill: npm yarnのバージョン変更 ([0e5e00e1](https://github.com/tyankatsu0105/cz-format-extension/commit/0e5e00e19bbd006acf04dd009894d845e7ce7ab6))
+
 #### 0.1.3 (2018-10-29)
 
 #### 0.1.2 (2018-10-29)
