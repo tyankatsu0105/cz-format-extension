@@ -1,3 +1,9 @@
+#### 0.1.5 (2018-10-29)
+
+##### Bug Fixes
+
+*  :pill: nodeのバージョン変更 ([a53730c4](https://github.com/tyankatsu0105/cz-format-extension/commit/a53730c44db4b392b13f4cd481df4bff1aa50fef))
+
 #### 0.1.4 (2018-10-29)
 
 ##### Bug Fixes
