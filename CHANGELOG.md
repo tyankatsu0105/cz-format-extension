@@ -1,3 +1,10 @@
+#### 0.1.2 (2018-10-29)
+
+##### Build System / Dependencies
+
+* **package.json:**  :+1: test時にbuildも実行されるようにした ([420dfd46](https://github.com/tyankatsu0105/cz-format-extension/commit/420dfd46f86e6b6ffb9c1121752c74ddf2f90c80))
+* **index.js:**  :+1: testコマンドをsrc配下のソースから行うように変更 ([a60b382a](https://github.com/tyankatsu0105/cz-format-extension/commit/a60b382a904c9720d30d913cc98da5e5806cb2dd))
+
 #### 0.1.1 (2018-10-29)
 
 ##### Continuous Integration
