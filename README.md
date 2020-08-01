@@ -6,8 +6,6 @@
 
 Extensible [Commitizen](https://github.com/commitizen/cz-cli)'s format
 
-This package is extension commit message format when use
-
 ## Usage
 
 ```
@@ -29,8 +27,78 @@ Make `.czrc` or add `config` fields into package.json
 ```json
 {
   "config": {
-  "commitizen": {
-    "path": "cz-format-extension"
+    "commitizen": {
+      "path": "cz-format-extension"
+    }
+  }
+}
+```
+
+### Create Config file
+
+Make `.czferc.js`
+
+```js
+module.exports = {
+  questions(inquirer) {
+    return [
+      {...},
+      {...},
+    ]
+  },
+  commitMessage(answers) {
+    return ...
+  }
+}
+```
+
+- questions
+  - params
+    - ([inquirer](https://github.com/SBoudrias/Inquirer.js))
+  - return
+    - [Question Object](https://github.com/SBoudrias/Inquirer.js#question)
+- commitMessage
+  - params
+    - [answers](https://github.com/SBoudrias/Inquirer.js#answers)
+  - return
+    - string
+
+#### Tips: Configuration settings with types
+
+If you love to develop with types, you can use that with `JSDoc`.
+You should install `@types/inquirer`.
+
+```shell
+npm install -D @types/inquirer
+```
+
+```js
+module.exports = {
+  /**
+   * @param {import('inquirer').Inquirer} inquirer
+   * @returns {import('inquirer').QuestionCollection}
+   */
+  questions(inquirer) {
+    return [
+      {
+        type: "list",
+        name: "questionType1",
+        message: "Select answer",
+        choices: [
+          {...},
+          {...}
+        ]
+      },
+    ]
+  },
+  /**
+   * @typedef {{questionType1: string; questionType2: string}} Answers
+   *
+   * @param {Answers} answers
+   * @returns {string}
+   */
+  commitMessage(answers) {
+    return `${answers.questionType1}${answers.questionType2}`
   }
 }
 ```
