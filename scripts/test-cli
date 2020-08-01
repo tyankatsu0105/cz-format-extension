@@ -1,0 +1,24 @@
+#!/bin/bash
+
+npm run build
+
+# Set path for git-cz
+echo {\"path\": \"./dist/index.js\"} > .czrc
+
+# Create test.txt to run git commit with git-cz
+touch test.txt
+date -u > test.txt
+
+git add test.txt
+npx git-cz
+
+# Remove test.txt and reset
+git reset --soft HEAD^
+rm test.txt
+git add test.txt
+
+# Reset .czrc
+echo {\"path\": \"cz-conventional-changelog\"} > .czrc
+echo =========================
+echo \"Confirmed cli. Exit.\"
+echo =========================
