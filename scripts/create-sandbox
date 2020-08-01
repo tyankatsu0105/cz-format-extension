@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd ./sandbox
+
+npm init -y
+npm install -D commitizen
+touch .czrc
+touch .czferc.js
