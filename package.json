@@ -23,6 +23,9 @@
     }
   ],
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
     "precommit": "lint-staged",
