@@ -32,7 +32,6 @@
     "commit": "git-cz",
     "dev": "tsc -w",
     "release": "shipjs prepare",
-    "test": "jest",
     "test:cli": "sh scripts/test-cli",
     "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
   },
