@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "cosmiconfig": "^6.0.0",
+    "git-repo-info": "^2.1.1",
     "inquirer": "^7.3.3",
     "tslib": "2.0.0"
   },

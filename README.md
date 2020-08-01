@@ -40,13 +40,13 @@ Make `.czferc.js`
 
 ```js
 module.exports = {
-  questions(inquirer) {
+  questions({inquirer, gitInfo}) {
     return [
       {...},
       {...},
     ]
   },
-  commitMessage(answers) {
+  commitMessage({answers, gitInfo}) {
     return ...
   }
 }
@@ -54,31 +54,32 @@ module.exports = {
 
 - questions
   - params
-    - ([inquirer](https://github.com/SBoudrias/Inquirer.js))
+    - [inquirer](https://github.com/SBoudrias/Inquirer.js)
+    - [gitInfo](https://github.com/rwjblue/git-repo-info)
   - return
     - [Question Object](https://github.com/SBoudrias/Inquirer.js#question)
 - commitMessage
   - params
     - [answers](https://github.com/SBoudrias/Inquirer.js#answers)
+    - [gitInfo](https://github.com/rwjblue/git-repo-info)
   - return
     - string
 
 #### Tips: Configuration settings with types
 
-If you love to develop with types, you can use that with `JSDoc`.
-You should install `@types/inquirer`.
+If you love to develop with types, you can use that with `JSDocs`.
 
 ```shell
-npm install -D @types/inquirer
+npm install -D @types/inquirer git-repo-info
 ```
 
 ```js
 module.exports = {
   /**
-   * @param {import('inquirer').Inquirer} inquirer
+   * @param {{inquirer: import('inquirer').Inquirer, gitInfo: import('git-repo-info').GitRepoInfo}}
    * @returns {import('inquirer').QuestionCollection}
    */
-  questions(inquirer) {
+  questions({inquirer, gitInfo}) {
     return [
       {
         type: "list",
@@ -94,10 +95,10 @@ module.exports = {
   /**
    * @typedef {{questionType1: string; questionType2: string}} Answers
    *
-   * @param {Answers} answers
+   * @param {{answers: Answers, gitInfo: import('git-repo-info').GitRepoInfo}}
    * @returns {string}
    */
-  commitMessage(answers) {
+  commitMessage({answers, gitInfo}) {
     return `${answers.questionType1}${answers.questionType2}`
   }
 }
