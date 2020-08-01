@@ -28,6 +28,7 @@
     "precommit": "lint-staged",
     "commit": "git-cz",
     "dev": "tsc -w",
+    "release": "shipjs prepare",
     "test": "jest",
     "test:cli": "sh scripts/test-cli",
     "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
@@ -49,6 +50,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
+    "shipjs": "0.20.1",
     "ts-node": "8.10.2",
     "typescript": "3.9.7"
   },
