@@ -1,87 +1,58 @@
 {
   "name": "cz-format-extension",
   "version": "0.1.5",
+  "description": "",
+  "keywords": [
+    "commitizen",
+    "git-cz"
+  ],
   "homepage": "https://github.com/tyankatsu0105/cz-format-extension#readme",
   "bugs": {
     "url": "https://github.com/tyankatsu0105/cz-format-extension/issues"
   },
-  "license": "MIT",
-  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.hatenablog.com/)",
-  "files": [
-    "LICENSE",
-    "README.md",
-    "index.js",
-    "lib",
-    "package.json"
-  ],
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tyankatsu0105/cz-format-extension.git"
   },
-  "scripts": {
-    "build": "babel src --out-dir lib",
-    "build:watch": "babel --watch src --out-dir lib",
-    "czrcCommit": "echo '{ \"path\": \"normal-commit/index.js\" }' > .czrc && git add .czrc",
-    "czrcTest": "echo '// this is test\n{ \"path\": \"./index.js\" }' > .czrc && git add .czrc",
-    "git-cz": "git-cz",
-    "commit": "run-s czrcCommit format git-cz",
-    "test": "run-s build czrcTest git-cz",
-    "reset": "git reset --soft HEAD^",
-    "precommit": "lint-staged",
-    "format": "fixpack",
-    "release:major": "changelog -M -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version major -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "release:minor": "changelog -m -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version minor -m 'feat: :tada: updated version' && git push origin && git push origin --tags",
-    "release:patch": "changelog -p -u $npm_package_config_changelog && git add CHANGELOG.md && git commit --no-verify -m 'docs(CHANGELOG.md): :bookmark: updated CHANGELOG.md' && npm version patch -m 'feat: :tada: updated version' && git push origin && git push origin --tags"
-  },
-  "config": {
-    "changelog": "https://github.com/tyankatsu0105/cz-format-extension"
-  },
-  "dependencies": {
-    "cosmiconfig": "^5.0.6",
-    "longest": "^2.0.1",
-    "right-pad": "^1.0.1",
-    "word-wrap": "^1.2.3"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-preset-power-assert": "^3.0.0",
-    "commitizen": "^2.10.1",
-    "eslint": "^5.6.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "fixpack": "^2.3.1",
-    "generate-changelog": "^1.7.1",
-    "lint-staged": "^7.3.0",
-    "npm-run-all": "^4.1.3",
-    "prettier": "^1.14.3"
-  },
-  "engines": {
-    "node": ">=10.11.0",
-    "npm": "*",
-    "yarn": ">=1.3.0"
-  },
+  "license": "MIT",
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
   "contributors": [
     {
       "name": "camcam-lemon",
       "email": "omega.camcamlemon@gmail.com"
     }
   ],
-  "engineStrict": true,
-  "lint-staged": {
-    "linters": {
-      "*.js": [
-        "eslint --fix",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "node_modules/**/*",
-      "lib/**/*"
-    ]
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --project ./tsconfig.build.json",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "dev": "tsc -w",
+    "test": "jest",
+    "test:cli": "sh scripts/test-cli",
+    "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
+  },
+  "dependencies": {
+    "cosmiconfig": "^6.0.0",
+    "inquirer": "^7.3.3",
+    "tslib": "2.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^7.3.0",
+    "@types/node": "14.0.26",
+    "@typescript-eslint/eslint-plugin": "3.7.1",
+    "@typescript-eslint/parser": "3.7.1",
+    "commitizen": "4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "7.5.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  },
+  "engines": {
+    "node": "12.18.2"
   }
 }
