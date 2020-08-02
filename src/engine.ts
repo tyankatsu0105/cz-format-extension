@@ -1,13 +1,7 @@
-import { QuestionCollection } from "inquirer";
-import { initialize } from "./util";
 import * as inquirer from "inquirer";
 import getRepoInfo from "git-repo-info";
-
-type CZ = {
-  prompt: <T>(questions: QuestionCollection<T>) => Promise<T>;
-};
-
-type Commit = (commitMessage: string) => void;
+import { initialize } from "./util";
+import { CZ, Commit } from "./types";
 
 export const engine = () => {
   const { config } = initialize();

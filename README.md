@@ -69,16 +69,13 @@ module.exports = {
 
 If you love to develop with types, you can use that with `JSDocs`.
 
-```shell
-npm install -D @types/inquirer git-repo-info
-```
-
 ```js
+/**
+ * @typedef {{questionType1: string; questionType2: string}} Answers
+ */
+
+/** @type import('cz-format-extension').Config<Answers> */
 module.exports = {
-  /**
-   * @param {{inquirer: import('inquirer').Inquirer, gitInfo: import('git-repo-info').GitRepoInfo}}
-   * @returns {import('inquirer').QuestionCollection}
-   */
   questions({inquirer, gitInfo}) {
     return [
       {
@@ -92,12 +89,6 @@ module.exports = {
       },
     ]
   },
-  /**
-   * @typedef {{questionType1: string; questionType2: string}} Answers
-   *
-   * @param {{answers: Answers, gitInfo: import('git-repo-info').GitRepoInfo}}
-   * @returns {string}
-   */
   commitMessage({answers, gitInfo}) {
     return `${answers.questionType1}${answers.questionType2}`
   }
