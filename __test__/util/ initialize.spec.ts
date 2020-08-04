@@ -25,17 +25,17 @@ jest.mock("cosmiconfig", () => {
 
 describe("util/initialize", () => {
   describe("initialize()", () => {
-    it("configプロパティにcosmiconfigのconfig値が返ってくるか", () => {
+    it("return the value of cosmiconfig property", () => {
       expect(initialize()).toHaveProperty("config");
     });
 
-    it("cosmiconfigにczfeのconfigが渡されているか", () => {
+    it("cosmiconfig received config of czfe", () => {
       expect((Cosmiconfig as any).cosmiconfigSync.mock.calls[0][0]).toBe(
         Const.MODULE_NAME
       );
     });
 
-    it("cosmiconfigにconfigファイルが渡されていないとエラーがスローされるか", () => {
+    it("error is thrown when cosmiconfig received no config", () => {
       expect(() => {
         initialize();
       }).toThrowError("Could not find config file.");
