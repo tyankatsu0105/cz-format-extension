@@ -4,5 +4,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noImplicitReturns": true
-  }
+  },
+  "include": ["tests"]
 }
