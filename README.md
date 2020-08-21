@@ -76,6 +76,8 @@ module.exports = {
   - return
     - string
 
+We prepare [the example](https://github.com/tyankatsu0105/cz-format-extension/tree/master/example).
+
 #### Tips: Configuration settings with types
 
 If you love to develop with types, you can use that with `JSDocs`.
