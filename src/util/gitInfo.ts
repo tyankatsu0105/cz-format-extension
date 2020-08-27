@@ -19,7 +19,5 @@ export const getGitInfo = async () => {
     staged,
   };
 
-  console.log(gitInfo);
-
   return { gitInfo };
 };
