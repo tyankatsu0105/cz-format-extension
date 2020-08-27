@@ -34,8 +34,8 @@
     "dev": "tsc -w",
     "release": "shipjs prepare",
     "test": "jest",
-    "test:watch": "jest --watch",
     "test:cli": "sh scripts/test-cli",
+    "test:watch": "jest --watch",
     "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
   },
   "dependencies": {
@@ -43,6 +43,7 @@
     "cosmiconfig": "^6.0.0",
     "git-repo-info": "^2.1.1",
     "inquirer": "^7.3.3",
+    "simple-git": "^2.20.1",
     "tslib": "2.0.0"
   },
   "devDependencies": {

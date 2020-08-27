@@ -66,13 +66,13 @@ module.exports = {
 - questions
   - params
     - [inquirer](https://github.com/SBoudrias/Inquirer.js)
-    - [gitInfo](https://github.com/rwjblue/git-repo-info)
+    - [gitInfo](https://github.com/rwjblue/git-repo-info) + `not_added`, `created`, `deleted`, `modified`, `renamed`, `staged` from [StatusResult](https://github.com/steveukx/git-js/blob/master/typings/response.d.ts) of [simple-git](https://github.com/steveukx/git-js)
   - return
     - [Question Object](https://github.com/SBoudrias/Inquirer.js#question)
 - commitMessage
   - params
     - [answers](https://github.com/SBoudrias/Inquirer.js#answers)
-    - [gitInfo](https://github.com/rwjblue/git-repo-info)
+    - [gitInfo](https://github.com/rwjblue/git-repo-info) + `not_added`, `created`, `deleted`, `modified`, `renamed`, `staged` from [StatusResult](https://github.com/steveukx/git-js/blob/master/typings/response.d.ts) of [simple-git](https://github.com/steveukx/git-js)
   - return
     - string
 
