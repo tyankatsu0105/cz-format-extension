@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.3.0...v1.4.0) (2020-09-29)
+
+
+### Features
+
+* add some info to gitInfo ([#75](https://github.com/tyankatsu0105/cz-format-extension/issues/75)) ([9d7191b](https://github.com/tyankatsu0105/cz-format-extension/commit/9d7191bdceb385606fa6f8ca78a8382f67f1bfa4))
+
+
+
 # [1.3.0](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.2.0...v1.3.0) (2020-08-29)
 
 
