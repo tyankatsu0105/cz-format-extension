@@ -42,6 +42,30 @@ const getTrackingBranch = (): {
   return { trackingBranch };
 };
 
+const getCountCommitToTrackingBranch = (
+  trackingBranch: GitInfo["trackingBranch"]
+): {
+  countCommitToTrackingBranch: GitInfo["countCommitToTrackingBranch"];
+} => {
+  let countCommitToTrackingBranch;
+  if (trackingBranch === undefined) {
+    countCommitToTrackingBranch = undefined;
+    return { countCommitToTrackingBranch };
+  }
+
+  try {
+    countCommitToTrackingBranch = execSync(
+      `git rev-list --count HEAD ^${trackingBranch}`
+    )
+      .toString()
+      .trim();
+  } catch (error) {
+    countCommitToTrackingBranch = undefined;
+  }
+
+  return { countCommitToTrackingBranch };
+};
+
 export const getGitInfo = async (
   repoPath: string = process.cwd()
 ): Promise<{ gitInfo: GitInfo }> => {
@@ -53,6 +77,9 @@ export const getGitInfo = async (
 
   const { isFirstCommitOnCurrentBranch } = getIsFirstCommitOnCurrentBranch();
   const { trackingBranch } = getTrackingBranch();
+  const { countCommitToTrackingBranch } = getCountCommitToTrackingBranch(
+    trackingBranch
+  );
 
   const gitInfo = {
     ...repoInfo,
@@ -64,6 +91,7 @@ export const getGitInfo = async (
     staged,
     isFirstCommitOnCurrentBranch,
     trackingBranch,
+    countCommitToTrackingBranch,
   };
 
   return { gitInfo };

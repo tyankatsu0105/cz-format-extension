@@ -12,6 +12,7 @@ export type GitInfo = GitRepoInfo &
   > & {
     isFirstCommitOnCurrentBranch: boolean;
     trackingBranch: string | undefined;
+    countCommitToTrackingBranch: string | undefined;
   };
 
 export type Config<T> = {
