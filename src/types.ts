@@ -5,11 +5,14 @@ import { StatusResult } from "simple-git";
 export type CZ = Inquirer;
 export type Commit = (commitMessage: string) => void;
 
-type GitInfo = GitRepoInfo &
+export type GitInfo = GitRepoInfo &
   Pick<
     StatusResult,
     "not_added" | "created" | "deleted" | "modified" | "renamed" | "staged"
-  >;
+  > & {
+    isFirstCommitOnCurrentBranch: boolean;
+    trackingBranch: string | undefined;
+  };
 
 export type Config<T> = {
   questions: ({
