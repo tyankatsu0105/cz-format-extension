@@ -83,10 +83,10 @@ module.exports = {
   commitMessage({answers}) {
     const scope = answers.scope ? `(${answers.scope})` : '';
     const head = `${answers.type}${scope}: ${answers.subject}`;
-    const body = answers.body ? answers.body : false;
+    const body = answers.body ? answers.body : '';
     const breaking = answers.breaking ? `BREAKING CHANGE: ${answers.breaking}` : '';
-    const issues = answers.issues ? answers.issues : false;
+    const issues = answers.issues ? answers.issues : '';
 
-    return [head, body, breaking, issues].join('\n\n')
+    return [head, body, breaking, issues].join('\n\n').trim()
   }
 }
