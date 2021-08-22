@@ -22,7 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Use Node.js 12
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           registry-url: "https://registry.npmjs.org"
           node-version: "12.x"
