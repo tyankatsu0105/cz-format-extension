@@ -1,3 +1,7 @@
+## [1.4.2](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.4.1...v1.4.2) (2021-10-04)
+
+
+
 ## [1.4.1](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.4.0...v1.4.1) (2021-08-22)
 
 
