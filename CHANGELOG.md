@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.4.2...v1.5.0) (2022-02-26)
+
+
+### Features
+
+* support node v16, v17 ([#98](https://github.com/tyankatsu0105/cz-format-extension/issues/98)) ([1c07a4e](https://github.com/tyankatsu0105/cz-format-extension/commit/1c07a4e51171ffbd87fa4167668fd9a05268c9ef))
+
+
+
 ## [1.4.2](https://github.com/tyankatsu0105/cz-format-extension/compare/v1.4.1...v1.4.2) (2021-10-04)
 
 
