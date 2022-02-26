@@ -1,4 +1,4 @@
-import { getGitInfo } from "../../src/util";
+import { getGitInfo } from ".";
 
 describe("getGitInfo", () => {
   it("when run function, should return some property that helpful to use information about Git", async () => {

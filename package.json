@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --project ./tsconfig.build.json",
+    "build": "tsc",
     "precommit": "lint-staged",
     "commit": "git-cz",
     "dev": "tsc -w",
@@ -36,7 +36,7 @@
     "test": "jest",
     "test:cli": "sh scripts/test-cli",
     "test:watch": "jest --watch",
-    "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@types/inquirer": "^8.2.0",

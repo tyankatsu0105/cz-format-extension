@@ -1,6 +1,6 @@
 import Cosmiconfig from "cosmiconfig";
-import { initialize } from "../../src/util/initialize";
-import * as Const from "../../src/util/const";
+import { initialize } from "./initialize";
+import * as Const from "./const";
 
 jest.mock("cosmiconfig", () => {
   const fake = jest.fn();
