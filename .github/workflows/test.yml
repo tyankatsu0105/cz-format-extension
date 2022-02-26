@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         # Follow package.json engine field
-        node-version: [12.x, 13.x, 14.x]
+        node-version: ['12', '14', '16', '17']
 
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: package-lock.json
           node-version: ${{ matrix.node-version }}
 
