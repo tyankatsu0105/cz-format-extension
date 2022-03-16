@@ -1,16 +1,15 @@
 /**
  * @type {import('eslint').Linter.Config}
  */
- const config = {
-   env: {
-     node: true
-   },
+const config = {
+  env: {
+    node: true,
+  },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
-  files: ["*.ts", "*.js"],
   parser: "@typescript-eslint/parser",
   plugins: [
     "simple-import-sort",
@@ -38,6 +37,6 @@
       "error",
       { ignoreRestSiblings: true },
     ],
-  }
+  },
 };
 module.exports = config;

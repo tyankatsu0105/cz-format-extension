@@ -1,5 +1,5 @@
-import { Inquirer, QuestionCollection } from "inquirer";
 import { GitRepoInfo } from "git-repo-info";
+import { Inquirer, QuestionCollection } from "inquirer";
 import { StatusResult } from "simple-git";
 
 export type CZ = Inquirer;
@@ -10,19 +10,12 @@ export type GitInfo = GitRepoInfo &
     StatusResult,
     "not_added" | "created" | "deleted" | "modified" | "renamed" | "staged"
   > & {
+    countCommitToTrackingBranch: string | undefined;
     isFirstCommitOnCurrentBranch: boolean;
     trackingBranch: string | undefined;
-    countCommitToTrackingBranch: string | undefined;
   };
 
 export type Config<T> = {
-  questions: ({
-    inquirer,
-    gitInfo,
-  }: {
-    inquirer: Inquirer;
-    gitInfo: GitInfo;
-  }) => QuestionCollection;
   commitMessage: ({
     answers,
     gitInfo,
@@ -30,6 +23,13 @@ export type Config<T> = {
     answers: T;
     gitInfo: GitInfo;
   }) => string;
+  questions: ({
+    gitInfo,
+    inquirer,
+  }: {
+    gitInfo: GitInfo;
+    inquirer: Inquirer;
+  }) => QuestionCollection;
 };
 
-export type InternalConfig = Partial<Config<unknown>>
+export type InternalConfig = Partial<Config<unknown>>;

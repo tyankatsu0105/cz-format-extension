@@ -1,6 +1,6 @@
+import { execSync } from "child_process";
 import gitRepoInfo from "git-repo-info";
 import simpleGit from "simple-git";
-import { execSync } from "child_process";
 
 import { GitInfo } from "../types";
 
@@ -73,25 +73,24 @@ export const getGitInfo = async (
   const gitStatus = simpleGit(repoPath);
   const status = await gitStatus.status();
 
-  const { not_added, created, deleted, modified, renamed, staged } = status;
+  const { created, deleted, modified, not_added, renamed, staged } = status;
 
   const { isFirstCommitOnCurrentBranch } = getIsFirstCommitOnCurrentBranch();
   const { trackingBranch } = getTrackingBranch();
-  const { countCommitToTrackingBranch } = getCountCommitToTrackingBranch(
-    trackingBranch
-  );
+  const { countCommitToTrackingBranch } =
+    getCountCommitToTrackingBranch(trackingBranch);
 
   const gitInfo = {
     ...repoInfo,
-    not_added,
+    countCommitToTrackingBranch,
     created,
     deleted,
+    isFirstCommitOnCurrentBranch,
     modified,
+    not_added,
     renamed,
     staged,
-    isFirstCommitOnCurrentBranch,
     trackingBranch,
-    countCommitToTrackingBranch,
   };
 
   return { gitInfo };

@@ -1,6 +1,7 @@
 import Cosmiconfig from "cosmiconfig";
-import { initialize } from "./initialize";
+
 import * as Const from "./const";
+import { initialize } from "./initialize";
 
 jest.mock("cosmiconfig", () => {
   const fake = jest.fn();
@@ -11,11 +12,11 @@ jest.mock("cosmiconfig", () => {
     })
     .mockImplementationOnce(() => null);
   const cosmiconfigSync = jest.fn().mockImplementation(() => ({
-    search,
-    load: fake,
+    clearCaches: fake,
     clearLoadCache: fake,
     clearSearchCache: fake,
-    clearCaches: fake,
+    load: fake,
+    search,
   }));
 
   return {

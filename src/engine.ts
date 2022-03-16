@@ -1,9 +1,9 @@
-import { initialize, getPrompter } from "./util";
+import { getPrompter, initialize } from "./util";
 
 const { config } = initialize();
 
 export const engine = () => {
-  const {prompter} = getPrompter(config)
+  const { prompter } = getPrompter(config);
 
   return {
     prompter,

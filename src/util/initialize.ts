@@ -1,6 +1,7 @@
 import * as Cosmiconfig from "cosmiconfig";
-import * as Const from "./const";
+
 import { InternalConfig } from "../types";
+import * as Const from "./const";
 
 const explorer = Cosmiconfig.cosmiconfigSync(Const.MODULE_NAME);
 
