@@ -31,3 +31,5 @@ export type Config<T> = {
     gitInfo: GitInfo;
   }) => string;
 };
+
+export type InternalConfig = Partial<Config<unknown>>

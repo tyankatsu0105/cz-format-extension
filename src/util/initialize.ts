@@ -1,11 +1,11 @@
 import * as Cosmiconfig from "cosmiconfig";
 import * as Const from "./const";
-import { Config } from "../types";
+import { InternalConfig } from "../types";
 
 const explorer = Cosmiconfig.cosmiconfigSync(Const.MODULE_NAME);
 
 type Initialize = {
-  config: Partial<Config<unknown>>;
+  config: InternalConfig;
 };
 
 export const initialize = (): Initialize => {
@@ -14,6 +14,6 @@ export const initialize = (): Initialize => {
   if (result === null) throw new Error("Could not find config file.");
 
   return {
-    config: result.config as Config<unknown>,
+    config: result.config,
   };
 };

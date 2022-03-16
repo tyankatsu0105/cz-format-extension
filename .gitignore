@@ -141,12 +141,7 @@ dist
 .vscode-test
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+.vscode
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
@@ -157,3 +152,4 @@ dist
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 sandbox/*
 !sandbox/.gitkeep
+.tool-versions
