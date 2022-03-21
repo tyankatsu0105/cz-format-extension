@@ -1,9 +1,9 @@
 import * as inquirer from "inquirer";
 
 import { Commit, CZ, GitInfo, InternalConfig } from "../types";
-import { getGitInfo } from "../util";
+import { getGitInfo } from "./gitInfo";
 
-const executeCommit = (params: {
+export const executeCommit = (params: {
   commit: Commit;
   config: InternalConfig;
   cz: CZ;
@@ -22,9 +22,6 @@ const executeCommit = (params: {
         answers,
         gitInfo: params.gitInfo,
       });
-
-      if (typeof commitMessage !== "string")
-        throw new Error("commitMessage should return string.");
 
       params.commit(commitMessage);
     });
