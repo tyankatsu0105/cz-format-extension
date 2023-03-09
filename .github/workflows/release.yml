@@ -17,13 +17,17 @@ jobs:
       - name: Use Node.js 12
         uses: actions/setup-node@v2
         with:
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: package-lock.json
           registry-url: "https://registry.npmjs.org"
           node-version: "12.x"
 
       - name: Install dependencies
         run: npm ci
+
+      - run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
 
       - run: npx shipjs trigger
         env:
