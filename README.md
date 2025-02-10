@@ -9,9 +9,6 @@
   <a title="Current version" href="https://badge.fury.io/js/cz-format-extension" rel="nofollow">
     <img src="https://badge.fury.io/js/cz-format-extension.svg?style=flat">
   </a>
-  <a title="deploy" href="https://github.com/algolia/shipjs" rel="nofollow">
-    <img src="https://img.shields.io/badge/deploy-🛳%20Ship.js-blue?style=flat">
-  </a>
   <a title="MIT License" href="[LICENSE](https://opensource.org/licenses/MIT)" rel="nofollow">
     <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat">
   </a>
