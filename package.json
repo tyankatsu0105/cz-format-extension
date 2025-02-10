@@ -32,7 +32,7 @@
     "precommit": "lint-staged",
     "commit": "git-cz",
     "dev": "tsc -w",
-    "release": "release-it",
+    "release": "np",
     "test": "jest",
     "test:cli": "sh scripts/test-cli",
     "test:watch": "jest --watch",
@@ -47,7 +47,6 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@release-it/keep-a-changelog": "^6.0.0",
     "@swc/core": "^1.2.145",
     "@swc/jest": "^0.2.20",
     "@types/jest": "^27.4.1",
@@ -61,8 +60,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.4",
+    "np": "^10.2.0",
     "prettier": "^2.5.1",
-    "release-it": "^18.1.2",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   },
