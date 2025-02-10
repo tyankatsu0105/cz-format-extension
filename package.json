@@ -47,6 +47,7 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
+    "@release-it/keep-a-changelog": "^6.0.0",
     "@swc/core": "^1.2.145",
     "@swc/jest": "^0.2.20",
     "@types/jest": "^27.4.1",
